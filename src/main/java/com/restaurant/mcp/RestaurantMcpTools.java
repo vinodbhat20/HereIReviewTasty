@@ -6,10 +6,12 @@ import com.restaurant.repository.DishRepository;
 import com.restaurant.repository.QualityKeywordRepository;
 import dev.langchain4j.agent.tool.Tool;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
 @Getter
 @Setter
 @AllArgsConstructor
