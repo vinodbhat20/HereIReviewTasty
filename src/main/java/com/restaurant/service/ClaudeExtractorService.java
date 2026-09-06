@@ -16,6 +16,7 @@ public class ClaudeExtractorService {
 
     private final ChatLanguageModel chatLanguageModel;
     private final RestaurantMcpTools mcpTools;
+    private final String model;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public ClaudeExtractorService(
@@ -32,6 +33,7 @@ public class ClaudeExtractorService {
                 .build();
 
         this.mcpTools = mcpTools;
+        this.model = model;
     }
 
     /**
@@ -126,7 +128,7 @@ public class ClaudeExtractorService {
                 .keyConcerns(extractArrayFromJson(jsonNode, "key_concerns"))
                 .keyPraises(extractArrayFromJson(jsonNode, "key_praises"))
                 .confidence(jsonNode.get("confidence").asDouble())
-                .modelUsed("claude-opus-4.5")
+                .modelUsed(model)
                 .processingTimeMs((int) processingTime)
                 .rawAnalysis(response)
                 .build();
